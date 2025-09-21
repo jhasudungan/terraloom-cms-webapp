@@ -4,7 +4,7 @@ import { FormEvent, JSX, useState } from "react";
 import PageHeader from "../shared/PageHeader";
 import { Button, Label, Select, TextInput } from "flowbite-react";
 import { formatDate } from "@/util/dayUtil";
-import { HiOutlineSave, HiTrash } from "react-icons/hi";
+import { HiOutlineSave } from "react-icons/hi";
 import { toast } from "react-toastify";
 
 interface UserDetailProps {
@@ -47,7 +47,8 @@ const UserDetail = ({ user }: UserDetailProps):JSX.Element => {
             toast.success("Success update");
             window.location.href = `/user/${user.id}`;
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
             return;
         }

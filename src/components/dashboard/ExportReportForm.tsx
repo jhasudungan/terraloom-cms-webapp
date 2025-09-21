@@ -19,8 +19,8 @@ const ExportReportForm = (): JSX.Element => {
           return  
         }
 
-        let startDateUnix =  Math.floor(startDate.getTime() / 1000);
-        let endDateUnix = Math.floor(endDate.getTime() / 1000);
+        const startDateUnix =  Math.floor(startDate.getTime() / 1000);
+        const endDateUnix = Math.floor(endDate.getTime() / 1000);
 
         const params: URLSearchParams = new URLSearchParams({
             'startDate': `${startDateUnix}`,
@@ -58,9 +58,10 @@ const ExportReportForm = (): JSX.Element => {
 
             // Cleanup
             window.URL.revokeObjectURL(url);
-        } catch (error) {
-            toast.error("Unexpected error exporting report");
+        } catch (error : unknown) {
             console.error(error);
+            toast.error("Unexpected error exporting report");
+            
         }
 
     }

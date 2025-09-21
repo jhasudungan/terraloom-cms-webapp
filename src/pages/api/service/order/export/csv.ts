@@ -1,6 +1,6 @@
 import { RestConfiguration } from '@/schema/entity';
 import { getHTTPProps, getQueryParamAsString, handleProviderError } from '@/util/httpUtil';
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const exportOrderCSV = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -11,9 +11,9 @@ const exportOrderCSV = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const restConfiguration: RestConfiguration = getHTTPProps();
     const { startDate , endDate, status } = req.query;
-    let queryStartDate = getQueryParamAsString(startDate);
-    let queryEndDate = getQueryParamAsString(endDate);
-    let queryStatus = getQueryParamAsString(status);
+    const queryStartDate = getQueryParamAsString(startDate);
+    const queryEndDate = getQueryParamAsString(endDate);
+    const queryStatus = getQueryParamAsString(status);
     
     const params: URLSearchParams = new URLSearchParams({
         'startDate': queryStartDate,
@@ -40,7 +40,7 @@ const exportOrderCSV = async (req: NextApiRequest, res: NextApiResponse) => {
 
         // Pipe response stream to client
         response.data.pipe(res);
-    } catch (error: any) {
+    } catch (error: unknown) {
         return handleProviderError(error, res);
     }
 

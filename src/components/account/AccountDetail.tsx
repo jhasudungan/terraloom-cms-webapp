@@ -42,7 +42,8 @@ const AccountDetail = ({ account }: AccountDetailProps):JSX.Element => {
             toast.success("Success update");
             window.location.href = `/account/${account.id}`;
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
             return;
         }

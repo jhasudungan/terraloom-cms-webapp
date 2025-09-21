@@ -4,7 +4,7 @@ import { FormEvent, JSX, useEffect, useState } from "react";
 import PageHeader from "../shared/PageHeader";
 import { Button, Label, ModalBody, ModalHeader, Select, Textarea, TextInput } from "flowbite-react";
 import { Modal } from "flowbite-react";
-import { HiOutlineSave, HiOutlineSelector, HiSearch, HiX, HiXCircle } from "react-icons/hi";
+import { HiOutlineSave, HiOutlineSelector, HiSearch, HiXCircle } from "react-icons/hi";
 import { GetCategoryListResponse } from "@/schema/response";
 import { FileInput } from "flowbite-react";
 import { toast } from "react-toastify";
@@ -84,7 +84,8 @@ const NewProductForm = ():JSX.Element => {
 
             window.location.href = "/product";
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
         }
         
@@ -112,7 +113,8 @@ const NewProductForm = ():JSX.Element => {
 
             setSearchCategoriesResult(response.data.categories);
             
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
             return
         }
@@ -181,7 +183,7 @@ const NewProductForm = ():JSX.Element => {
                             className="flex-grow"
                         />
                         <Button 
-                            onClick={(e) => setOpenSearchCategoryModal(true)}
+                            onClick={() => setOpenSearchCategoryModal(true)}
                             className="flex-shrink-0 ml-2 px-3 py-2 text-sm"    
                         > Choose </Button>
                     </div>

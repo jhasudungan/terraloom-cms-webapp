@@ -37,7 +37,8 @@ const UpdatePasswordForm = ():JSX.Element => {
             toast.success("Update successfully!");
             window.location.href = "/profile";
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
             return;
         }

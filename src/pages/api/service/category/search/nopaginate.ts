@@ -11,9 +11,9 @@ const searchCategoryNoPaginate = async (req: NextApiRequest, res: NextApiRespons
 
     const restConfiguration: RestConfiguration = getHTTPProps();
     const { name , id, isActive } = req.query;
-    let queryName = getQueryParamAsString(name);
-    let queryId = getQueryParamAsString(id);
-    let queryIsActive = getQueryParamAsString(isActive);
+    const queryName = getQueryParamAsString(name);
+    const queryId = getQueryParamAsString(id);
+    const queryIsActive = getQueryParamAsString(isActive);
     
     const params: URLSearchParams = new URLSearchParams({
         'isPaginate': "false",
@@ -38,7 +38,7 @@ const searchCategoryNoPaginate = async (req: NextApiRequest, res: NextApiRespons
     try {
         providerResponse = await agent.get(endpoint);
         return res.status(200).json(providerResponse.data);
-    } catch(error: any) {
+    } catch(error: unknown) {
         return handleProviderError(error, res);
     } 
 

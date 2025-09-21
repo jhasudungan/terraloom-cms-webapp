@@ -1,7 +1,7 @@
 "use client"
 
 import { AccountReport, OrderReport } from '@/schema/entity';
-import { Card, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-react';
+import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-react';
 import { JSX } from 'react';
 import {
     HiChartBar,

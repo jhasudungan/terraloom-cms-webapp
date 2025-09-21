@@ -115,7 +115,8 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
             toast.success("Success update")
             window.location.href = `/product/${product.id}`;
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error")
         }
         
@@ -151,7 +152,8 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
             toast.success("Success update");
             window.location.href = "/product";
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error")
             return;
         }
@@ -180,7 +182,8 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
 
             setSearchCategoriesResult(response.data.categories);
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
             return
         }
@@ -360,7 +363,7 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
 
                 <div className="flex space-x-5">
                     <Button type="submit"><HiOutlineSave className="mr-3" />Save Product</Button>
-                    <Button color={"red"} type="submit" onClick={(e) => handleDelete()}><HiTrash className="mr-3" />Delete Product</Button>
+                    <Button color={"red"} type="submit" onClick={() => handleDelete()}><HiTrash className="mr-3" />Delete Product</Button>
                 </div>
             </form>
 

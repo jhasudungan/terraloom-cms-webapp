@@ -1,5 +1,4 @@
 import LoginForm from "@/components/login/LoginForm";
-import { Button } from "flowbite-react";
 import { JSX } from "react";
 
 const Home = ():JSX.Element => {

@@ -58,7 +58,8 @@ const LoginForm = (): JSX.Element => {
                 return
             }
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
         }
 

@@ -24,7 +24,7 @@ const createUserService = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         providerResponse = await agent.post(endpoint, req.body);
         return res.status(200).json(providerResponse.data);
-    } catch(error: any) {
+    } catch(error: unknown) {
         return handleProviderError(error, res);
     } 
 

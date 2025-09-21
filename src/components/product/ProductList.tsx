@@ -1,7 +1,7 @@
 "use client";
 import { JSX, useState } from "react";
 import PageHeader from "../shared/PageHeader";
-import { Badge, Button, Select, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, TextInput } from "flowbite-react";
+import { Button, Select, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, TextInput } from "flowbite-react";
 import { HiChevronDoubleLeft, HiChevronDoubleRight, HiOutlinePlus, HiPencilAlt, HiSearch, HiTrash } from "react-icons/hi";
 import { Metadata, Product } from "@/schema/entity";
 import { useRouter } from 'next/navigation'; 

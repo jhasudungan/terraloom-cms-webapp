@@ -1,7 +1,7 @@
 "use client"
 import PageHeader from "@/components/shared/PageHeader";
 import { Category, Metadata } from "@/schema/entity";
-import { Badge, Button, 
+import {  Button, 
         Select, 
         Table, 
         TableBody, 
@@ -84,11 +84,6 @@ const CategoryList = ({ categories, metadata } : CategoriesListProps):JSX.Elemen
         const filterEndpoint = `/category?${params.toString()}`;
         router.push(filterEndpoint);
     }
-
-    const statusCellStyles: Record<string, string> = {
-        FALSE: "bg-red-100 text-red-800 font-medium",
-        TRUE: "bg-green-100 text-green-800 font-medium",
-    };
 
     return (
         <>

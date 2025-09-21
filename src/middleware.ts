@@ -40,7 +40,10 @@ export async function middleware(request: NextRequest) {
             const secret = new TextEncoder().encode(process.env.CMS_JWT_SECRET);
             await jwtVerify(token, secret); 
             
-        } catch (error) {
+        } catch (error : unknown) {
+
+            console.error(error);
+
             // Invalid token, redirect to login and clear cookies
             const loginUrl = new URL('/', request.url);
             loginUrl.searchParams.set('message', 'Invalid session, please login again');
@@ -66,7 +69,8 @@ export async function middleware(request: NextRequest) {
                     return NextResponse.redirect(new URL('/dashboard', request.url));
                 }
             }
-        } catch (error) {
+        } catch (error : unknown) {
+            console.error(error);
             // Invalid token, let them access login page
         }
     }

@@ -38,7 +38,8 @@ const NewCategoryForm = ():JSX.Element => {
 
             window.location.href = "/category";
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error");
         }
     

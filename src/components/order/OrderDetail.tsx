@@ -3,13 +3,12 @@
 import { OrderItem, OrderWithItems } from "@/schema/entity"
 import { JSX, useState } from "react"
 import PageHeader from "../shared/PageHeader"
-import { Button, Label, Modal, ModalBody, ModalHeader, Select, TextInput } from "flowbite-react"
+import { Button, Label, Modal, ModalBody, ModalHeader, TextInput } from "flowbite-react"
 import { formatDate } from "@/util/dayUtil"
 import { HiCheck, HiOutlineSave, HiX } from "react-icons/hi"
 import { formatNumber } from "@/util/numberUtil"
 import { toast } from "react-toastify"
 import Link from "next/link"
-import { HiBars4 } from "react-icons/hi2"
 
 interface OrderDetailProps {
     order: OrderWithItems
@@ -42,7 +41,8 @@ const OrderDetail = ( { order  }: OrderDetailProps): JSX.Element => {
             toast.success("Success update")
             window.location.href = `/order/${order.orderReference}`;
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error")
         }
 
@@ -73,7 +73,8 @@ const OrderDetail = ( { order  }: OrderDetailProps): JSX.Element => {
             toast.success("Success update")
             window.location.href = `/order/${order.orderReference}`;
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error);
             toast.error("Network error")
         }
 
@@ -104,7 +105,8 @@ const OrderDetail = ( { order  }: OrderDetailProps): JSX.Element => {
             toast.success("Success update")
             window.location.href = `/order/${order.orderReference}`;
 
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.error(error)
             toast.error("Network error")
         }
 

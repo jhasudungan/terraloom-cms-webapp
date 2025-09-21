@@ -42,7 +42,8 @@ const NewUserForm = ():JSX.Element => {
             toast.success("Success create");
             window.location.href = "/user";
 
-        } catch (error : any) {
+        } catch (error : unknown) {
+            console.error(error);
             toast.error("Network error");
             return;
         }

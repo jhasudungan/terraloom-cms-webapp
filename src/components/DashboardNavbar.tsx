@@ -10,7 +10,8 @@ const DashboardNavbar = (): JSX.Element => {
     try {
       await axios.get("/api/service/auth/logout"); // Calls your logoutService
       window.location.href = "/" // Redirect to login page
-    } catch (error) {
+    } catch (error: unknown) {
+      console.error(error);
       toast.error("Logout failed");
       return
     }
@@ -27,7 +28,7 @@ const DashboardNavbar = (): JSX.Element => {
           <NavbarLink href="/profile">
             Profile
           </NavbarLink>
-          <NavbarLink onClick={(e) => handleLogout()}>
+          <NavbarLink onClick={() => handleLogout()}>
             Logout
           </NavbarLink>
         </NavbarCollapse>

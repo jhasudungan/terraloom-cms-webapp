@@ -1,7 +1,7 @@
 "use client"
 import PageHeader from "@/components/shared/PageHeader";
-import { Account, Metadata, User } from "@/schema/entity";
-import { Badge, Button, 
+import { Account, Metadata } from "@/schema/entity";
+import { Button, 
         Select, 
         Table, 
         TableBody, 

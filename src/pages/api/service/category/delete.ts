@@ -1,5 +1,5 @@
 import { RestConfiguration } from '@/schema/entity';
-import { getHTTPProps, getHTTPPropsWithToken, handleProviderError } from '@/util/httpUtil';
+import { getHTTPProps, handleProviderError } from '@/util/httpUtil';
 import axios, { AxiosInstance } from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -24,7 +24,7 @@ const deleteCategoryService = async (req: NextApiRequest, res: NextApiResponse) 
     try {
         providerResponse = await agent.delete(endpoint);
         return res.status(200).json(providerResponse.data);
-    } catch(error: any) {
+    } catch(error: unknown) {
         return handleProviderError(error, res);
     } 
 

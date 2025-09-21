@@ -1,10 +1,18 @@
 import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
 import { Client } from 'minio';
-import { IncomingForm, File } from 'formidable';
+import { IncomingForm } from 'formidable';
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import { handleProviderError } from '@/util/httpUtil';
+
+interface ParsedFields {
+    [key: string]: string | string[];
+}
+
+interface ParsedFiles {
+    [key: string]: File | File[];
+}
 
 const minioClient = new Client({
     endPoint: process.env.MINIO_ENDPOINT || 'localhost',

@@ -1,6 +1,5 @@
 import ExportReportForm from "@/components/dashboard/ExportReportForm";
 import ReportTab from "@/components/dashboard/ReportTab";
-import OrderReportTab from "@/components/dashboard/ReportTab";
 import DashboardNavbar from "@/components/DashboardNavbar";
 import DashboardSidebar from "@/components/DashboardSidebar";
 import { RestConfiguration } from "@/schema/entity";

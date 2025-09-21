@@ -28,7 +28,7 @@ const getCategoryDetail = async (id: string): Promise<GetCategoryDetailResponse>
         headers: headers
     })
 
-    let response: AxiosResponse<GetCategoryDetailResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetCategoryDetailResponse> = await agent.get(endpoint);
 
     return response.data;
 

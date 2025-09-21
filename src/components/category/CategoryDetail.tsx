@@ -46,7 +46,8 @@ const CategoryDetail = ({ category }: CategoryDetailProps):JSX.Element => {
             toast.success("Success update");
             window.location.href = `/category/${category.id}`;
 
-        } catch (error : any) {
+        } catch (error : unknown) {
+            console.error(error);
             toast.error("Network error");
         }
         
@@ -82,7 +83,8 @@ const CategoryDetail = ({ category }: CategoryDetailProps):JSX.Element => {
             toast.success("Success delete");
 
             window.location.href = "/category";
-        } catch(error: any) {
+        } catch(error: unknown) {
+            console.error(error);
             toast.error("Network error");
         }
         
@@ -166,7 +168,7 @@ const CategoryDetail = ({ category }: CategoryDetailProps):JSX.Element => {
 
                 <div className="flex space-x-5">
                     <Button type="submit"><HiOutlineSave className="mr-3"/> Save Category</Button>
-                    <Button color={"red"} type="submit" onClick={(e) => handleDelete()}><HiTrash className="mr-3"/> Delete Category</Button>
+                    <Button color={"red"} type="submit" onClick={() => handleDelete()}><HiTrash className="mr-3"/> Delete Category</Button>
                 </div>
             </form>
         </>
