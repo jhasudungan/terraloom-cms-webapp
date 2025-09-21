@@ -1,18 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
 import { Client } from 'minio';
-import { IncomingForm } from 'formidable';
+import { Fields, Files, IncomingForm } from 'formidable';
 import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import { handleProviderError } from '@/util/httpUtil';
-
-interface ParsedFields {
-    [key: string]: string | string[];
-}
-
-interface ParsedFiles {
-    [key: string]: File | File[];
-}
 
 const minioClient = new Client({
     endPoint: process.env.MINIO_ENDPOINT || 'localhost',
@@ -49,7 +41,7 @@ const uploadProductPictureService = async (req: NextApiRequest, res: NextApiResp
         multiples: false, // Single file only
     });
 
-    const [fields, files] = await new Promise<[any, any]>((resolve, reject) => {
+    const [fields, files] = await new Promise<[Fields, Files]>((resolve, reject) => {
         form.parse(req, (err, fields, files) => {
             if (err) reject(err);
             else resolve([fields, files]);
@@ -119,7 +111,7 @@ const uploadProductPictureService = async (req: NextApiRequest, res: NextApiResp
             }
         });
 
-    } catch (uploadError: any) {
+    } catch (uploadError: unknown) {
         console.error('Upload error:', uploadError);
         return handleProviderError(uploadError, res);
     }

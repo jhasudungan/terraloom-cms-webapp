@@ -51,7 +51,7 @@ const getQueryParamAsString = (param: string | string[] | undefined, defaultValu
 interface ApiError {
     response?: {
         status?: number;
-        data?: any;
+        data?: unknown;
     };
 }
 
