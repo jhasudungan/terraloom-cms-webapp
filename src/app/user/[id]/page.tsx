@@ -18,7 +18,7 @@ const getUserDetail = async (id: string): Promise<GetUserDetailResponse> => {
     const restConfiguration: RestConfiguration = await getHTTPPropsWithToken();
     const endpoint:string = `${restConfiguration.apiCmsHost}/api/v1/user/${id}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
     }
@@ -28,7 +28,7 @@ const getUserDetail = async (id: string): Promise<GetUserDetailResponse> => {
         headers: headers
     })
 
-    let response: AxiosResponse<GetUserDetailResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetUserDetailResponse> = await agent.get(endpoint);
 
     return response.data;
 

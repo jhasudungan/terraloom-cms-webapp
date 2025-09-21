@@ -18,7 +18,7 @@ const getCategoryDetail = async (id: string): Promise<GetCategoryDetailResponse>
     const restConfiguration: RestConfiguration = await getHTTPPropsWithToken();
     const endpoint:string = `${restConfiguration.apiCmsHost}/api/v1/category/${id}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
     }

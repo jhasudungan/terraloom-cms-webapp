@@ -18,7 +18,7 @@ const getOrderDetail = async (orderReference: string): Promise<GetOrderDetailRes
     const restConfiguration: RestConfiguration = await getHTTPPropsWithToken();
     const endpoint:string = `${restConfiguration.apiCmsHost}/api/v1/order/${orderReference}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
     }
@@ -28,7 +28,7 @@ const getOrderDetail = async (orderReference: string): Promise<GetOrderDetailRes
         headers: headers
     })
 
-    let response: AxiosResponse<GetOrderDetailResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetOrderDetailResponse> = await agent.get(endpoint);
 
     return response.data;
 

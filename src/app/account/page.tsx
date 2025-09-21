@@ -33,7 +33,7 @@ const getAccountList = async(searchParams : AccountSearchParams): Promise<GetAcc
 
     const endpoint:string = `${restConfiguration.apiCmsHost}/api/v1/accounts?${params.toString()}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
     }
@@ -43,7 +43,7 @@ const getAccountList = async(searchParams : AccountSearchParams): Promise<GetAcc
         headers: headers
     })
 
-    let response: AxiosResponse<GetAccountListResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetAccountListResponse> = await agent.get(endpoint);
 
     return response.data;
 

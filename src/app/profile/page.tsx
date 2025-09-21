@@ -15,7 +15,7 @@ const getProfileDetail = async (): Promise<GetProfileDetailResponse> => {
   const restConfiguration: RestConfiguration = await getHTTPPropsWithToken();
   const endpoint:string = `${restConfiguration.apiCmsHost}/api/auth/me`;
 
-  let headers: object = {
+  const headers: object = {
       "Content-Type": "application/json",
       'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
   }
@@ -25,7 +25,7 @@ const getProfileDetail = async (): Promise<GetProfileDetailResponse> => {
       headers: headers
   })
 
-  let response: AxiosResponse<GetProfileDetailResponse> = await agent.get(endpoint);
+  const response: AxiosResponse<GetProfileDetailResponse> = await agent.get(endpoint);
 
   return response.data;
 

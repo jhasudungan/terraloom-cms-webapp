@@ -33,7 +33,7 @@ const getProducts = async(searchParams : ProductSearchParams): Promise<GetProduc
 
     const endpoint:string = `${restConfiguration.apiCmsHost}/api/v1/products?${params.toString()}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
     }
@@ -43,7 +43,7 @@ const getProducts = async(searchParams : ProductSearchParams): Promise<GetProduc
         headers: headers
     })
 
-    let response: AxiosResponse<GetProductListResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetProductListResponse> = await agent.get(endpoint);
 
     return response.data;
 

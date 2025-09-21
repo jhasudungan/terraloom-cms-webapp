@@ -31,7 +31,7 @@ const getCategoryList = async(searchParams : CategorySearchParams): Promise<GetC
 
     const endpoint:string = `${restConfiguration.apiCmsHost}/api/v1/categories?${params.toString()}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
     }
@@ -41,7 +41,7 @@ const getCategoryList = async(searchParams : CategorySearchParams): Promise<GetC
         headers: headers
     })
 
-    let response: AxiosResponse<GetCategoryListResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetCategoryListResponse> = await agent.get(endpoint);
 
     return response.data;
 

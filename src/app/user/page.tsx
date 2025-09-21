@@ -33,7 +33,7 @@ const getUserList = async(searchParams : UsersSearchParams): Promise<GetUserList
 
     const endpoint:string = `${restConfiguration.apiCmsHost}/api/v1/users?${params.toString()}`;
 
-    let headers: object = {
+    const headers: object = {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${restConfiguration.apiCmsAccessToken}`
     }
@@ -43,7 +43,7 @@ const getUserList = async(searchParams : UsersSearchParams): Promise<GetUserList
         headers: headers
     })
 
-    let response: AxiosResponse<GetUserListResponse> = await agent.get(endpoint);
+    const response: AxiosResponse<GetUserListResponse> = await agent.get(endpoint);
 
     return response.data;
 
