@@ -32,6 +32,7 @@ const NewProductForm = ():JSX.Element => {
 
 
         let uploadPicture: string = "https://placehold.co/600x400";
+        let uploadPictureSecure: string = "https://placehold.co/600x400";
 
         if (selectedProductPicture) {
             
@@ -50,6 +51,7 @@ const NewProductForm = ():JSX.Element => {
 
             const responseUpload = await response.json();
             uploadPicture =  responseUpload.data.url;
+            uploadPictureSecure = responseUpload.data.secureUrl;
         }
 
         const requestBody: object = {
@@ -59,7 +61,8 @@ const NewProductForm = ():JSX.Element => {
             stock: stock,
             isActive: status,
             categoryId: categoryId,
-            imageUrl: uploadPicture
+            imageUrl: uploadPicture,
+            imageUrlSecure: uploadPictureSecure
         }
         
         try {

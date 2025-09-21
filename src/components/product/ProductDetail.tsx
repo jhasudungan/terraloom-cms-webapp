@@ -62,6 +62,7 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
 
 
         let selectedImageUrl: string = product.imageUrl;
+        let selectedImageUrlSecure: string = product.imageUrlSecure;
 
         if (selectedNewProductPicture) {
             
@@ -80,6 +81,8 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
 
             const responseUpload = await response.json();
             selectedImageUrl = responseUpload.data.url;
+            selectedImageUrlSecure = responseUpload.data.urlSecure;
+
         }
 
         const requestBody: object = {
@@ -90,6 +93,7 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
             stock: stock,
             isActive: status,
             imageUrl: selectedImageUrl,
+            imageUrlSecure: selectedImageUrlSecure,
             categoryId: categoryId
         }
 

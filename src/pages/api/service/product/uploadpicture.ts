@@ -91,6 +91,7 @@ const uploadProductPictureService = async (req: NextApiRequest, res: NextApiResp
         // Generate public URL
         const baseUrl = process.env.MINIO_PUBLIC_URL || 'http://localhost:9000';
         const fileUrl = `${baseUrl}/${bucketName}/${uniqueFilename}`;
+        const fileUrlSecure = `${process.env.MINIO_SECURE_ENDPOINT}/${bucketName}/${uniqueFilename}`
 
         // Clean up temporary file
         fs.unlinkSync(file.filepath);
@@ -103,6 +104,7 @@ const uploadProductPictureService = async (req: NextApiRequest, res: NextApiResp
                 filename: uniqueFilename,
                 originalName: file.originalFilename,
                 url: fileUrl,
+                secureUrl: fileUrlSecure,
                 size: file.size,
                 type: file.mimetype,
                 bucket: bucketName
