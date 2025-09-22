@@ -8,6 +8,7 @@ import { HiOutlineSave, HiOutlineSelector, HiSearch, HiXCircle } from "react-ico
 import { GetCategoryListResponse } from "@/schema/response";
 import { FileInput } from "flowbite-react";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 const NewProductForm = ():JSX.Element => {
     
@@ -253,7 +254,7 @@ const NewProductForm = ():JSX.Element => {
                     {selectedProductPicture && selectedProductPicture.type.startsWith('image/') && previewProductPictureUrl && (
                         <>
                             <div className="mt-3">
-                                <img 
+                                <Image 
                                     src={previewProductPictureUrl} 
                                     alt="Preview"
                                     className="max-w-full max-h-64 object-contain rounded border"

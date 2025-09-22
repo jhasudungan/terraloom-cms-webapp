@@ -8,6 +8,7 @@ import { Modal } from "flowbite-react";
 import { HiOutlineSave, HiOutlineSelector, HiSearch, HiTrash, HiXCircle } from "react-icons/hi";
 import { GetCategoryListResponse } from "@/schema/response";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 interface ProductDetailProps {
     product: Product
@@ -287,7 +288,7 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
                                 <Label htmlFor="currentPicture">Current Picture</Label>
                             </div>
                             <div className="mt-3">
-                                <img 
+                                <Image 
                                     id="currentPicture"
                                     src={product.imageUrl} 
                                     alt="currentPicture"
@@ -314,7 +315,7 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
                     {selectedNewProductPicture && selectedNewProductPicture.type.startsWith('image/') && previewNewroductPictureUrl && (
                         <>
                             <div className="mt-3">
-                                <img
+                                <Image
                                     src={previewNewroductPictureUrl}
                                     alt="Preview"
                                     className="max-w-full max-h-64 object-contain rounded border"

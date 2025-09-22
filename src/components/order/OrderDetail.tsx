@@ -9,6 +9,7 @@ import { HiCheck, HiOutlineSave, HiX } from "react-icons/hi"
 import { formatNumber } from "@/util/numberUtil"
 import { toast } from "react-toastify"
 import Link from "next/link"
+import Image from "next/image"
 
 interface OrderDetailProps {
     order: OrderWithItems
@@ -308,7 +309,7 @@ const OrderDetail = ( { order  }: OrderDetailProps): JSX.Element => {
                         
                         {/* Image on the left */}
                         <div className="flex-shrink-0">
-                            <img 
+                            <Image 
                             src={item.product.imageUrl} 
                             alt={item.product ? item.product.name : "Product image"} 
                             className="w-16 h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
@@ -350,7 +351,7 @@ const OrderDetail = ( { order  }: OrderDetailProps): JSX.Element => {
                 </ModalHeader>
                 <ModalBody>
                     <div className="flex justify-center">
-                        <img
+                        <Image
                             src={selectedImageUrl}
                             alt={selectedImageName || "Product image"}
                             className="max-w-full max-h-96 object-contain"
