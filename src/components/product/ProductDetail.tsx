@@ -61,7 +61,6 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
 
         e.preventDefault();
 
-
         let selectedImageUrl: string = product.imageUrl;
         let selectedImageUrlSecure: string = product.imageUrlSecure;
 
@@ -82,7 +81,7 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
 
             const responseUpload = await response.json();
             selectedImageUrl = responseUpload.data.url;
-            selectedImageUrlSecure = responseUpload.data.urlSecure;
+            selectedImageUrlSecure = responseUpload.data.secureUrl;
 
         }
 
@@ -97,6 +96,8 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
             imageUrlSecure: selectedImageUrlSecure,
             categoryId: categoryId
         }
+
+        console.log(JSON.stringify(requestBody));
 
         try {
 
