@@ -312,7 +312,9 @@ const OrderDetail = ( { order  }: OrderDetailProps): JSX.Element => {
                             <Image 
                             src={item.product.imageUrl} 
                             alt={item.product ? item.product.name : "Product image"} 
-                            className="w-16 h-16 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                            className="object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
+                            width={100}
+                            height={100}
                             onClick={() => handleImageClick(item.product.imageUrl, item.product?.name)}
                         />
                         </div>
@@ -354,7 +356,9 @@ const OrderDetail = ( { order  }: OrderDetailProps): JSX.Element => {
                         <Image
                             src={selectedImageUrl}
                             alt={selectedImageName || "Product image"}
-                            className="max-w-full max-h-96 object-contain"
+                            width={500}
+                            height={500}
+                            className="object-contain"
                         />
                     </div>
                 </ModalBody>

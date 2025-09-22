@@ -257,7 +257,9 @@ const NewProductForm = ():JSX.Element => {
                                 <Image 
                                     src={previewProductPictureUrl} 
                                     alt="Preview"
-                                    className="max-w-full max-h-64 object-contain rounded border"
+                                    className="object-contain rounded border"
+                                    width={300}
+                                    height={300}
                                 />
                             </div>
                             <Button onClick={clearSelection} color={"yellow"} size="sm" className="my-5"><HiXCircle className="mr-3"/> Remove Uploaded Picture</Button>

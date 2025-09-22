@@ -287,12 +287,14 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
                             <div className="mb-2 block">
                                 <Label htmlFor="currentPicture">Current Picture</Label>
                             </div>
-                            <div className="mt-3">
+                            <div className="mt-3 flex-shrink-0">
                                 <Image 
                                     id="currentPicture"
                                     src={product.imageUrl} 
                                     alt="currentPicture"
-                                    className="max-w-full max-h-64 object-contain rounded border"
+                                    width={300}
+                                    height={300}
+                                    className="object-contain rounded border"
                                 />
                             </div>
                         </>
@@ -314,11 +316,13 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
                     {/* Image Preview */}
                     {selectedNewProductPicture && selectedNewProductPicture.type.startsWith('image/') && previewNewroductPictureUrl && (
                         <>
-                            <div className="mt-3">
+                            <div className="mt-3 flex-shrink-0">
                                 <Image
                                     src={previewNewroductPictureUrl}
                                     alt="Preview"
-                                    className="max-w-full max-h-64 object-contain rounded border"
+                                    width={300}
+                                    height={300}
+                                    className="object-contain rounded border"
                                 />
                             </div>
                             <Button onClick={clearSelection} color={"yellow"} size="sm" className="my-5"><HiXCircle className="mr-3" /> Remove Uploaded Picture</Button>
