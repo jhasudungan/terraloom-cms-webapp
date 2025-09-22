@@ -1,4 +1,4 @@
-import LoginForm from "@/components/login/LoginForm";
+import LoginFormSuspenseWrapper from "@/components/login/LoginFormSuspenseWrapper";
 import { JSX } from "react";
 
 const Home = ():JSX.Element => {
@@ -9,7 +9,7 @@ const Home = ():JSX.Element => {
         <div className="flex min-h-screen">
             {/* flex-1 told the the main to take everyspace left after sidebar */}
             <main className="flex-1 p-10 overflow-auto overflow-x-auto">
-                <LoginForm />
+                <LoginFormSuspenseWrapper />
             </main>
         </div>
     </>

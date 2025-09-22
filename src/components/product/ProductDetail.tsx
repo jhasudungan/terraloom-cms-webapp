@@ -227,7 +227,7 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
                             className="flex-grow"
                         />
                         <Button 
-                            onClick={(e) => setOpenSearchCategoryModal(true)}
+                            onClick={() => setOpenSearchCategoryModal(true)}
                             className="flex-shrink-0 ml-2 px-3 py-2 text-sm"    
                         > Change </Button>
                     </div>
