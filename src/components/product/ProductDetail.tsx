@@ -97,8 +97,6 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
             categoryId: categoryId
         }
 
-        console.log(JSON.stringify(requestBody));
-
         try {
 
             const res = await fetch('/api/service/product/update', {
@@ -147,11 +145,11 @@ const ProductDetail = ({ product }: ProductDetailProps):JSX.Element => {
             const data = await res.json();
             
             if (!res.ok) {
-                toast.error(data.responseMessage || "Update failed");
+                toast.error(data.responseMessage || "Delete failed");
                 return;
             }
 
-            toast.success("Success update");
+            toast.success("Success delete");
             window.location.href = "/product";
 
         } catch (error: unknown) {
