@@ -21,7 +21,7 @@ interface OrderReportProps {
 }
 
 const ReportTab = ({ orderReport, accountReport }: OrderReportProps): JSX.Element => {
-    
+
     const orderReportData = [
         {
             icon: HiChartBar,
@@ -130,7 +130,7 @@ const ReportTab = ({ orderReport, accountReport }: OrderReportProps): JSX.Elemen
                                         </TableCell>
                                         <TableCell className="text-right">
                                             <span className={`text-lg font-bold ${item.iconColor}`}>
-                                                {item.value.toLocaleString()}
+                                                {(item.value ?? 0).toLocaleString()}
                                             </span>
                                         </TableCell>
                                     </TableRow>
@@ -177,7 +177,7 @@ const ReportTab = ({ orderReport, accountReport }: OrderReportProps): JSX.Elemen
                                         </TableCell>
                                         <TableCell className="text-right">
                                             <span className={`text-lg font-bold ${item.iconColor}`}>
-                                                {item.value.toLocaleString()}
+                                                {(item.value ?? 0).toLocaleString()}
                                             </span>
                                         </TableCell>
                                     </TableRow>
@@ -190,7 +190,7 @@ const ReportTab = ({ orderReport, accountReport }: OrderReportProps): JSX.Elemen
             </div>
         </div>
 
-        
+
     );
 };
 
